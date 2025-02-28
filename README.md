@@ -90,13 +90,13 @@ Before running the application, make sure you have the following installed:
 6. **Run the Application**
    - For local development, you can run the **Flask backend** and **React front-end** separately
      - Backend (Flask API)
+       ```
+       cd backend
+       ```
        ```bash
        python run.py
        ```
      - Frontend (React)
-       ```bash
-       cd..
-       ```
        ```
        cd frontend
        ```
@@ -133,10 +133,11 @@ Before running the application, make sure you have the following installed:
 
 ```bash
 {
-"email": "seeker@example.com",
-"industry": "Technology",
-"location": "USA",
-"credit_rating": 750
+"Email": "seeker@gmail.com",
+"Password": "12345678",
+"Role": "Seeker"
+"Location": "United States",
+"Industry": "Technology",
 }
 ```
 
@@ -145,10 +146,12 @@ Before running the application, make sure you have the following installed:
 ```bash
 
 {
-"email": "provider@example.com",
-"services_offered": ["Web Development", "Mobile App Development"],
-"industry_focus": "Technology",
-"location": "USA"
+"Email": "provider@gmail.com",
+"Password": "12345678",
+"Role": "Provider"
+"Services": ["Health","Entertainment"] ,
+"Location": "United States"
+"Industry": "Technology",
 }
 ```
 

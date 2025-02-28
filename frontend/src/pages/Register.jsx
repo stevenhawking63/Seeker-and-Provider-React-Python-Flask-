@@ -123,7 +123,7 @@ const Register = () => {
 
           <div className="flex flex-col">
             <label htmlFor="industry" className="font-medium text-gray-700">
-              industry
+              Industry
             </label>
             <Select
               id="industry"
