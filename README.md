@@ -48,18 +48,13 @@ Before running the application, make sure you have the following installed:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/seeker-provider-matching.git
-   cd seeker-provider-matching
+   git clone git@github.com:stevenhawking63/Seeker-and-Provider-React-Python-Flask-.git
+   cd Seeker-and-Provider-React-Python-Flask-
    ```
 2. **Backend Setup (Flask API)**
-   - Create a virtual environment
-     ```bash
-     python3 -m venv venv
-     source venv/bin/activate  # On Windows use: venv\Scripts\activate
-     ```
    - Install the required Python dependencie
      ```bash
-     pip install -r backend/requirements.txt # On Windows use: venv\Scripts\activate
+     pip install -r backend/requirements.txt
      ```
 3. **Frontend Setup (React)**
    - Navigate to the frontend directory
@@ -68,90 +63,116 @@ Before running the application, make sure you have the following installed:
      ```
    - Install the required npm packages
      ```bash
-     npm install # On Windows use: venv\Scripts\activate
+     npm install
      ```
 4. **Database Setup**
    - Set up PostgreSQL, and create a database seeker_provider_db
-   - Run migrations (if applicable) to set up the schema
-5. **Run the Application**
+   - Modify the .env file in backend folder
+     - DATABASE_URL= "postgresql://[username]:[password]@localhost:5432/seeker_provider_db"
+5. **Database Migrate**
+   ```bash
+   cd..
+   cd backend
+   flask db init
+   flask db migrate -m "Initial Migration"
+   flask db upgrade
+   ```
+6. **Run the Application**
    - For local development, you can run the Flask backend and React front-end separately
      - Backend (Flask API)
        ```bash
-       cd backend
-       flask run
+       python run.py
        ```
      - Frontend (React)
        ```bash
+       cd..
        cd frontend
-       npm start
+       npm run dev
        ```
    - Alternatively, you can use Docker to run the full application in one command.
-       ```bash
-      docker-compose up --build
-       ```
+     ```bash
+     docker-compose up --build
+     ```
    - The application will be accessible at http://localhost:3000 (React front-end) and http://localhost:5000 (Flask back-end)
 
 ### Docker Setup
 
 1. **Build Docker Image**
    - In the project root directory, build the Docker image
-    ```bash
-    docker-compose build
-    ```
+   ```bash
+   docker-compose build
+   ```
 2. **Run Docker Containers**
    - Start the application with Docker Compose
-    ```bash
-    docker-compose up
-    ```
+   ```bash
+   docker-compose up
+   ```
 3. **Stopping the Application**
    - To stop the running Docker containers
-    ```bash
-    docker-compose down
-    ```
+   ```bash
+   docker-compose down
+   ```
 
 ## Sample Profile Data
+
 ### Seeker Profile
-  ```bash
-  {
-  "email": "seeker@example.com",
-  "industry": "Technology",
-  "location": "USA",
-  "credit_rating": 750
+
+```bash
+{
+"email": "seeker@example.com",
+"industry": "Technology",
+"location": "USA",
+"credit_rating": 750
 }
-  ```
+```
+
 ### Provider Profile
-  ```bash
-  
-  {
-  "email": "provider@example.com",
-  "services_offered": ["Web Development", "Mobile App Development"],
-  "industry_focus": "Technology",
-  "location": "USA"
+
+```bash
+
+{
+"email": "provider@example.com",
+"services_offered": ["Web Development", "Mobile App Development"],
+"industry_focus": "Technology",
+"location": "USA"
 }
-  ```
+```
 
 ## Demo
+
 For a demo of the application, please visit the following link (if deployed):
-  - 🎥 Demo (Optional, if deployed)
-  - 🔗 GitHub Repository: Provide your GitHub link here
+
+- 🎥 Demo (Optional, if deployed)
+- 🔗 GitHub Repository: Provide your GitHub link here
 
 ## Documentation
+
 #### System Architecture
+
 The application follows a typical three-layer architecture
+
 1. **Front-End (React)**: Single-page application built using React that interacts with the Flask backend via RESTful APIs.
 2. **Back-End (Flask)**: Python-based API that handles user authentication, profile management, and matching logic. It also interacts with the PostgreSQL database.
 3. **Database (PostgreSQL)**: A relational database used for storing user profiles and matching data.
+
 #### Matching Logic
+
 - The matching functionality is based on the user's preferences (location, industry) and ranks Providers for Seekers accordingly.
 - A Seeker can view a list of Providers with matching criteria, allowing them to make a selection based on their needs.
+
 #### Known Limitations
+
 - The matching logic is very basic and could be improved by incorporating more complex algorithms (e.g., machine learning-based recommendation systems).
 - The front-end UI is minimal and can be expanded to include more user-friendly features.
 - Authentication and user roles are implemented, but additional security features (e.g., password hashing) can be added for better security.
+
 #### Future Enhancements
+
 - **Improved Matching Algorithm**: Incorporate machine learning models or more refined algorithms to better match Seekers and Providers.
 - **Email Verification**: Add email verification during registration to ensure valid user accounts.
 - **User Ratings**: Allow users to rate Providers/Seekers, adding credibility to the platform.
+
 ## Submission
+
 - GitHub Repository: GitHub Repository URL
 - Loom Demo: Loom Demo Link
