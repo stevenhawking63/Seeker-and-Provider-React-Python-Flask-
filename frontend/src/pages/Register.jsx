@@ -26,7 +26,7 @@ const Register = () => {
     e.preventDefault();
     setError(null);
     const services_offered = JSON.stringify(services);
-    console.log(services_offered.length);
+    console.log(services_offered);
     try {
       await registerUser({
         email,

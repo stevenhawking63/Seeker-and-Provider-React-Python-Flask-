@@ -29,11 +29,11 @@ const Profile = () => {
           .getData()
           .find((item) => item.value === response.data.location);
 
-        setServices(JSON.parse(JSON.parse(response.data.services_offered)));
+        setServices(JSON.parse(response.data.services_offered));
         setIndustry(selectedIndustry);
         setLocation(selectedLocation);
         setInitialServices(
-          JSON.parse(JSON.parse(response.data.services_offered))
+          JSON.parse(response.data.services_offered)
         );
         setInitialIndustry(selectedIndustry);
         setInitialLocation(selectedLocation);

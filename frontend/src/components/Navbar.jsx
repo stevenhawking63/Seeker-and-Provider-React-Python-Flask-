@@ -1,11 +1,21 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+  const [logText, setLogText] = useState("Login");
   const navigate = useNavigate();
-  const { token } = useAuth();
+  const { token, setToken } = useAuth();
+  useEffect(() => {
+    if (token) setLogText("Logout");
+    else setLogText("Login");
+  }, [token]);
   const handleLogout = () => {
     localStorage.removeItem("token");
+    setToken(null);
+    navigate("/login");
+  };
+  const handleLogin = () => {
     navigate("/login");
   };
   return (
@@ -19,19 +29,12 @@ const Navbar = () => {
           <Link to="/profile" className="text-white hover:underline">
             Profile
           </Link>
-          {!token ? (
-            <Link to="/login" className="text-white hover:underline">
-              Login
-            </Link>
-          ) : (
-            <button
-              onClick={handleLogout}
-              className="text-white hover:underline"
-            >
-              Logout
-            </button>
-          )}
-          
+          <button
+            onClick={token ? handleLogout : handleLogin}
+            className="text-white hover:underline"
+          >
+            {logText}
+          </button>
         </div>
       </div>
     </nav>

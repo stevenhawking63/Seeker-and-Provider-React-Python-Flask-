@@ -55,19 +55,24 @@ const Dashboard = () => {
                   <span className="text-sm text-gray-600">
                     {match.industry} - {match.location}
                   </span>
-                  <label className="font-medium text-gray-700">Services</label>
                   {match.role === "provider" ? (
-                    <div className="flex flex-wrap">
-                      {JSON.parse(JSON.parse(match.services_offered))?.map(
-                        (item, index) => (
-                          <div
-                            key={index + 100}
-                            className="bg-gray-300 px-2 py-1 rounded-full mx-1"
-                          >
-                            {item.value}
-                          </div>
-                        )
-                      )}
+                    <div>
+                      <label className="font-medium text-gray-700">
+                        Services
+                      </label>
+                      <div className="flex flex-wrap">
+                        {JSON.parse(match.services_offered)?.map(
+                          (item, index) =>
+                            !!item.value && (
+                              <div
+                                key={index + 5000}
+                                className="bg-gray-300 px-2 py-1 rounded-full mx-1"
+                              >
+                                {item.value}
+                              </div>
+                            )
+                        )}
+                      </div>
                     </div>
                   ) : (
                     <div className="flex mt-2">
