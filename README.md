@@ -41,14 +41,16 @@ Before running the application, make sure you have the following installed:
 - Docker
 - Docker Compose
 - Python 3.8+
-- Node.js & npm (for the front-end)
-- PostgreSQL
+- Node.js 21.6+
+- PostgreSQL 17
 
 ### Local Development Setup
 
 1. **Clone the repository:**
    ```bash
    git clone git@github.com:stevenhawking63/Seeker-and-Provider-React-Python-Flask-.git
+   ```
+   ```bash
    cd Seeker-and-Provider-React-Python-Flask-
    ```
 2. **Backend Setup (Flask API)**
@@ -66,19 +68,27 @@ Before running the application, make sure you have the following installed:
      npm install
      ```
 4. **Database Setup**
-   - Set up PostgreSQL, and create a database seeker_provider_db
-   - Modify the .env file in backend folder
+   - Set up **PostgreSQL**, and create a **database seeker_provider_db**
+   - Modify the **.env** file in **backend** folder
      - DATABASE_URL= "postgresql://[username]:[password]@localhost:5432/seeker_provider_db"
 5. **Database Migrate**
    ```bash
    cd..
+   ```
+   ```bash
    cd backend
+   ```
+   ```bash
    flask db init
+   ```
+   ```bash
    flask db migrate -m "Initial Migration"
+   ```
+   ```bash
    flask db upgrade
    ```
 6. **Run the Application**
-   - For local development, you can run the Flask backend and React front-end separately
+   - For local development, you can run the **Flask backend** and **React front-end** separately
      - Backend (Flask API)
        ```bash
        python run.py
@@ -86,7 +96,11 @@ Before running the application, make sure you have the following installed:
      - Frontend (React)
        ```bash
        cd..
+       ```
+       ```
        cd frontend
+       ```
+       ```
        npm run dev
        ```
    - Alternatively, you can use Docker to run the full application in one command.
