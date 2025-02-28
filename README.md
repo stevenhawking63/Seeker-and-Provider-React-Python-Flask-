@@ -68,7 +68,7 @@ Before running the application, make sure you have the following installed:
      npm install
      ```
 4. **Database Setup**
-   - Set up **PostgreSQL**, and create a **database seeker_provider_db**
+   - Set up **PostgreSQL**, and create a database **seeker_provider_db**
    - Modify the **.env** file in **backend** folder
      - DATABASE_URL= "postgresql://[username]:[password]@localhost:5432/seeker_provider_db"
 5. **Database Migrate**
